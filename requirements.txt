@@ -1,0 +1,49 @@
+----
+ -- download data each year into folder 
+    incoming/YYYY/
+ -- read the file and create json file for each securities and move that file to archive
+    stock/EOD/YYYY/EQ/_{securites}.json
+    stock/EOD/YYYY/idx/_{securites}.json
+    archive/YYYY/
+ 
+
+ --- downloader
+       -- historical data downloader
+            -- nse site link
+            -- download
+            -- save it to incoming/YYYY/
+       -- Daily Data downloader
+            -- nse site link  
+            -- download
+            -- save it to incoming/YYYY/
+
+
+ --- Reader
+       -- historical data Reader
+            -- read csv file from incoming/YYYY/mm/dd
+            -- filter index and save the json as stock/EOD/YYYY/idx/_{securites}.json
+            -- filter securites and save the data json under stock/EOD/YYYY/EQ/_{securites}.json
+        
+       -- historical data Reader
+            -- read csv file from incoming/YYYY/mm/dd
+            -- filter index and save the json as stock/EOD/YYYY/idx/_{securites}.json
+            -- filter securites and save the data json under stock/EOD/YYYY/EQ/_{securites}.json
+
+
+-------------------------------------------------
+
+Microservices
+
+------
+downloader
+Reader -- read the file
+send data to kafka
+kafka to postgresql
+
+--------
+
+
+
+
+
+
